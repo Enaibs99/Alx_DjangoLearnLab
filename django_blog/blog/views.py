@@ -224,7 +224,7 @@ class CommentDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         def posts_by_tag(request, tag_name):
             tag =  get_object_or_404(Tag, name=tag_name)
             posts = Post.objects.filter( "blog/posts_by_tag.html", {"tag": tag, "posts": posts})
-            return render(request, 'blog/post_list.html', {'posts': posts, 'tag': tag_name})
+            return render(request, 'blog/posts_by_tag.html', {'posts': posts, 'tag': tag_name})
         
         def search_posts(request):
             query = request.GET.get('q', '').strip()
