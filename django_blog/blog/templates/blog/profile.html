@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <label for="email">Email:</label>
+    <input type="email" name="email" value="{{ user.email }}"><br><br>
+
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name" value="{{ user.first_name }}"><br><br>
+
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name" value="{{ user.last_name }}"><br><br>
+
+    <button type="submit">Update Profile</button>
+</form>
+
+{% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<p><a href="{% url 'logout' %}">Logout</a></p>
+{% endblock %}
