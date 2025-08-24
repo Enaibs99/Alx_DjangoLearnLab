@@ -5,7 +5,10 @@ __pycache__/
 # Ignore virtual environments
 venv/
 env/
+.env
 
 # Ignore Django DB
 *.sqlite3
 db.sqlite3
+
+.env
